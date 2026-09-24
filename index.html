@@ -143,7 +143,7 @@
             { name: "Netflix", category: "giai-tri", downloads: "30.5k", apkUrl: "./apks/netflix.apk" },
             { name: "Phim 4K", category: "giai-tri", downloads: "19.2k", apkUrl: "./apks/phim4k.apk" },
             { name: "sai gon Phim", category: "giai-tri", downloads: "8.7k", apkUrl: "./apks/sgphim.apk" },
-            { name: "Rổ phim", category: "giai-tri", downloads: "8.3k", apkUrl: "./apks/cobetv_101.apk" },
+            { name: "Rổ phim", category: "giai-tri", downloads: "8.3k", apkUrl: "https://github.com/xiaomihanoi/kho-app-xiaomi/releases/download/v2.0/cobetv_101.apk" },
             { name: "Get Out 2", category: "giai-tri", downloads: "10.1k", apkUrl: "./apks/Get_Out_2.end.apk" },
             { name: "SportStream", category: "giai-tri", downloads: "7.8k", apkUrl: "./apks/sportstream.apk" },
              { name: "Sports TV Android 15", category: "giai-tri", downloads: "5.6k", apkUrl: "./apks/SportsTV-5.2.3-android15-signed_1.apk" },
@@ -167,7 +167,7 @@
 
         ];
 
-        // Tự tạo Icon logo chữ nổi bật theo tên App
+        // Tự tạo Icon logo chữ nổi bật theo tên Apps
         function generateAutoIcon(appName) {
             const colors = ['ff6b00', '2563eb', '7c3aed', '059669', 'dc2626', 'd97706'];
             const randomColor = colors[Math.abs(appName.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)) % colors.length];
