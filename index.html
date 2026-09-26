@@ -7,194 +7,231 @@
 <title>KHO ỨNG DỤNG XIAOMI</title>
 
 <style>
-* {
-    box-sizing: border-box;
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #eef6ff;
-    color: #172033;
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#eef6ff;
+    color:#17324d;
 }
 
 /* HEADER */
-.header {
-    background: linear-gradient(135deg, #0757c9, #168cf5);
-    color: white;
-    text-align: center;
-    padding: 34px 20px 30px;
+
+.header{
+    background:linear-gradient(135deg,#0757c9,#1685e8);
+    padding:32px 20px 28px;
+    text-align:center;
+    color:white;
 }
 
-.header h1 {
-    margin: 0;
-    font-size: 38px;
-    font-weight: 800;
-    letter-spacing: 1px;
+.header h1{
+    font-size:34px;
+    font-weight:800;
+    letter-spacing:.5px;
 }
 
-.subtitle {
-    margin-top: 10px;
-    font-size: 18px;
+.header p{
+    margin-top:10px;
+    font-size:17px;
+    opacity:.95;
 }
 
-.phone {
-    margin-top: 8px;
-    font-size: 21px;
-    font-weight: bold;
+.phone{
+    margin-top:7px;
+    font-size:18px;
+    font-weight:700;
 }
 
-/* DANH MỤC */
-.category-area {
-    max-width: 1450px;
-    margin: auto;
-    padding: 25px 25px 10px;
+/* MENU */
+
+.menu{
+    max-width:1200px;
+    margin:22px auto;
+    padding:0 20px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
 }
 
-.categories {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
+.menu button{
+    border:1px solid #c9def5;
+    background:white;
+    color:#155ba5;
+    padding:12px 19px;
+    border-radius:25px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
 }
 
-.category {
-    border: 2px solid #c9e2fa;
-    background: white;
-    color: #125aa8;
-    border-radius: 30px;
-    padding: 13px 22px;
-    font-size: 17px;
-    font-weight: 600;
-    cursor: pointer;
+.menu button:hover,
+.menu button.active{
+    background:#126bd0;
+    color:white;
+    border-color:#126bd0;
 }
 
-.category.active {
-    background: #0b6edb;
-    color: white;
-    border-color: #0b6edb;
+/* CONTAINER */
+
+.container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:5px 20px 50px;
 }
 
-/* TÌM KIẾM */
-.search-area {
-    max-width: 850px;
-    margin: 20px auto 28px;
-    padding: 0 20px;
+/* TITLE */
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:25px 0 18px;
 }
 
-.search-box {
-    width: 100%;
-    height: 54px;
-    padding: 0 24px;
-    border: 2px solid #c8e1fa;
-    border-radius: 30px;
-    background: white;
-    font-size: 18px;
-    outline: none;
+.section-title .line{
+    width:5px;
+    height:30px;
+    background:#1172d1;
+    border-radius:5px;
 }
 
-.search-box:focus {
-    border-color: #168cf5;
+.section-title h2{
+    font-size:25px;
+    color:#075bb5;
 }
 
-/* NỘI DUNG */
-.content {
-    max-width: 1450px;
-    margin: auto;
-    padding: 0 25px 55px;
+/* SEARCH */
+
+.search-box{
+    margin-bottom:22px;
 }
 
-.section-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #0757c9;
-    font-size: 28px;
-    font-weight: 800;
-    margin: 8px 0 20px;
+.search-box input{
+    width:100%;
+    padding:15px 18px;
+    border:1px solid #c8dcf2;
+    border-radius:14px;
+    outline:none;
+    font-size:16px;
+    background:white;
 }
 
-/* APP */
-.apps {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
+.search-box input:focus{
+    border-color:#1675d1;
+    box-shadow:0 0 0 3px rgba(22,117,209,.10);
 }
 
-.app-card {
-    background: white;
-    border: 1px solid #d6e8f9;
-    border-radius: 18px;
-    padding: 25px;
-    min-height: 245px;
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(20, 90, 160, 0.08);
+/* APP GRID */
+
+.apps{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
 }
 
-.app-icon {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-    margin-bottom: 10px;
+/* APP CARD */
+
+.app-card{
+    background:white;
+    border:1px solid #d9e8f7;
+    border-radius:18px;
+    padding:24px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(20,83,140,.07);
+    transition:.2s;
 }
 
-.app-name {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 18px;
+.app-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 9px 25px rgba(20,83,140,.12);
 }
 
-.download-button {
-    display: inline-block;
-    min-width: 190px;
-    padding: 13px 30px;
-    border-radius: 10px;
-    background: #0b6edb;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 700;
+.app-icon{
+    width:92px;
+    height:92px;
+    object-fit:contain;
+    border-radius:20px;
+    margin-bottom:12px;
 }
 
-.download-button:hover {
-    background: #0757b5;
+.app-name{
+    font-size:20px;
+    font-weight:800;
+    color:#163b60;
+    margin-bottom:16px;
 }
 
-/* THÔNG BÁO */
-.notice {
-    background: white;
-    border-left: 5px solid #168cf5;
-    border-radius: 12px;
-    padding: 18px 20px;
-    margin-bottom: 25px;
-    color: #425466;
-    font-size: 16px;
+.download-btn{
+    display:block;
+    width:100%;
+    padding:13px 15px;
+    border:none;
+    border-radius:12px;
+    background:#1172d1;
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.download-btn:hover{
+    background:#075bb5;
 }
 
 /* FOOTER */
-.footer {
-    background: #0757c9;
-    color: white;
-    text-align: center;
-    padding: 25px;
-    font-size: 15px;
+
+.footer{
+    text-align:center;
+    padding:25px 15px;
+    background:#0757c9;
+    color:white;
+    font-size:14px;
 }
 
-/* MÀN HÌNH NHỎ */
-@media (max-width: 800px) {
-    .header h1 {
-        font-size: 29px;
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .header h1{
+        font-size:27px;
     }
 
-    .apps {
-        grid-template-columns: 1fr;
+    .header p{
+        font-size:15px;
     }
 
-    .category {
-        font-size: 15px;
-        padding: 11px 16px;
+    .menu{
+        padding:0 12px;
     }
+
+    .menu button{
+        font-size:14px;
+        padding:10px 14px;
+    }
+
+    .container{
+        padding-left:12px;
+        padding-right:12px;
+    }
+
+    .apps{
+        grid-template-columns:1fr;
+    }
+
+    .app-card{
+        padding:20px;
+    }
+
 }
+
 </style>
 </head>
 
@@ -202,11 +239,11 @@ body {
 
 <header class="header">
 
-    <h1>KHO ỨNG DỤNG XIAOMI</h1>
+    <h1>📺 KHO ỨNG DỤNG XIAOMI</h1>
 
-    <div class="subtitle">
+    <p>
         Hỗ trợ các lỗi về tivi Xiaomi - cài đặt tiếng Việt
-    </div>
+    </p>
 
     <div class="phone">
         ☎ 0379750874
@@ -215,88 +252,96 @@ body {
 </header>
 
 
-<section class="category-area">
+<nav class="menu">
 
-    <div class="categories">
+    <button class="active" onclick="showCategory('all',this)">
+        🏠 Tất cả
+    </button>
 
-        <button class="category active">
-            📺 Truyền hình
-        </button>
+    <button onclick="showCategory('truyen-hinh',this)">
+        📺 Truyền hình
+    </button>
 
-        <button class="category">
-            📡 Nhà Đài
-        </button>
+    <button onclick="showCategory('nha-dai',this)">
+        📡 Nhà Đài
+    </button>
 
-        <button class="category">
-            🎬 Giải trí
-        </button>
+    <button onclick="showCategory('giai-tri',this)">
+        🎬 Giải trí
+    </button>
 
-        <button class="category">
-            🧰 Kho ứng dụng
-        </button>
+    <button onclick="showCategory('kho-ung-dung',this)">
+        📦 Kho ứng dụng
+    </button>
 
-        <button class="category">
-            💾 Ứng dụng dự phòng
-        </button>
+    <button onclick="showCategory('du-phong',this)">
+        🛠️ Ứng dụng dự phòng
+    </button>
+
+</nav>
+
+
+<main class="container">
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔎 Tìm kiếm ứng dụng..."
+            oninput="searchApps()"
+        >
 
     </div>
 
-</section>
-
-
-<div class="search-area">
-
-    <input
-        class="search-box"
-        type="text"
-        placeholder="🔎  Tìm kiếm ứng dụng..."
-    >
-
-</div>
-
-
-<main class="content">
-
-    <div class="notice">
-        📌 Kho ứng dụng dành cho TV Xiaomi và Android TV.
-        Các ứng dụng sẽ được cập nhật thường xuyên.
-    </div>
 
     <div class="section-title">
-        📺 Truyền hình
+
+        <div class="line"></div>
+
+        <h2 id="sectionName">
+            Ứng dụng mới
+        </h2>
+
     </div>
 
-    <div class="apps">
+
+    <div class="apps" id="appList">
+
+        <!-- Ứng dụng sẽ được đưa vào đây -->
 
         <div class="app-card">
 
-            <div style="font-size:70px;">
+            <div class="app-icon"
+                 style="
+                 width:92px;
+                 height:92px;
+                 margin:0 auto 12px;
+                 background:#eaf3ff;
+                 display:flex;
+                 align-items:center;
+                 justify-content:center;
+                 font-size:40px;
+                 ">
                 📺
             </div>
 
             <div class="app-name">
-                Ứng dụng đang cập nhật
+                Đang cập nhật ứng dụng
             </div>
 
-            <a class="download-button" href="#">
-                Tải về
-            </a>
-
-        </div>
-
-        <div class="app-card">
-
-            <div style="font-size:70px;">
-                📺
+            <div style="
+                color:#71869b;
+                font-size:14px;
+                margin-bottom:16px;
+            ">
+                Kho ứng dụng Xiaomi
             </div>
 
-            <div class="app-name">
-                Sắp có ứng dụng
-            </div>
-
-            <a class="download-button" href="#">
-                Tải về
-            </a>
+            <button class="download-btn" disabled
+                style="opacity:.6;">
+                Đang cập nhật
+            </button>
 
         </div>
 
@@ -307,9 +352,73 @@ body {
 
 <footer class="footer">
 
-    KHO ỨNG DỤNG XIAOMI • Hỗ trợ kỹ thuật: 0379750874
+    KHO ỨNG DỤNG XIAOMI
+    <br>
+    Hỗ trợ cài đặt tiếng Việt & xử lý lỗi tivi Xiaomi
+    <br>
+    0379750874
 
 </footer>
+
+
+<script>
+
+function showCategory(category,button){
+
+    document.querySelectorAll('.menu button')
+        .forEach(btn => btn.classList.remove('active'));
+
+    button.classList.add('active');
+
+    const title = document.getElementById('sectionName');
+
+    const names = {
+
+        'all':'Ứng dụng mới',
+
+        'truyen-hinh':'📺 Truyền hình',
+
+        'nha-dai':'📡 Nhà Đài',
+
+        'giai-tri':'🎬 Giải trí',
+
+        'kho-ung-dung':'📦 Kho ứng dụng',
+
+        'du-phong':'🛠️ Ứng dụng dự phòng'
+
+    };
+
+    title.textContent = names[category];
+
+}
+
+
+function searchApps(){
+
+    const keyword =
+        document.getElementById('search')
+        .value
+        .toLowerCase();
+
+    const cards =
+        document.querySelectorAll('.app-card');
+
+    cards.forEach(card => {
+
+        const text =
+            card.textContent.toLowerCase();
+
+        if(text.includes(keyword)){
+            card.style.display='';
+        }else{
+            card.style.display='none';
+        }
+
+    });
+
+}
+
+</script>
 
 </body>
 </html>
