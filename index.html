@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KHO ỨNG DỤNG XIAOMI</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef6ff;
+            color: #123;
+        }
+
+        .header {
+            text-align: center;
+            padding: 35px 20px 25px;
+            background: #0d6efd;
+            color: white;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 34px;
+        }
+
+        .header p {
+            margin: 10px 0 0;
+            font-size: 18px;
+        }
+
+        .phone {
+            margin-top: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .category {
+            background: white;
+            border: 2px solid #b9dcff;
+            border-radius: 30px;
+            padding: 12px 22px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .category:hover {
+            background: #dceeff;
+        }
+
+        .search {
+            max-width: 900px;
+            margin: 0 auto 25px;
+            padding: 0 20px;
+        }
+
+        .search input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 15px 20px;
+            border: 2px solid #b9dcff;
+            border-radius: 30px;
+            font-size: 18px;
+            outline: none;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: auto;
+            padding: 10px 20px 50px;
+        }
+
+        .title {
+            color: #075fc0;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .apps {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .app {
+            background: white;
+            border: 1px solid #cce5ff;
+            border-radius: 18px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 12px;
+        }
+
+        .app-name {
+            font-size: 21px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .download {
+            display: inline-block;
+            background: #0d6efd;
+            color: white;
+            text-decoration: none;
+            padding: 13px 45px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .download:hover {
+            background: #0958c7;
+        }
+
+        @media (max-width: 700px) {
+            .apps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>KHO ỨNG DỤNG XIAOMI</h1>
+
+        <p>
+            Hỗ trợ các lỗi về tivi Xiaomi - cài đặt tiếng Việt
+        </p>
+
+        <div class="phone">
+            ☎ 0379750874
+        </div>
+    </div>
+
+    <div class="categories">
+
+        <div class="category">📺 Truyền hình</div>
+
+        <div class="category">🏠 Nhà Đài</div>
+
+        <div class="category">🎬 Giải trí</div>
+
+        <div class="category">🧰 Kho ứng dụng</div>
+
+        <div class="category">💾 Ứng dụng dự phòng</div>
+
+    </div>
+
+    <div class="search">
+
+        <input
+            type="text"
+            placeholder="🔎 Tìm kiếm ứng dụng..."
+        >
+
+    </div>
+
+    <div class="content">
+
+        <div class="title">
+            📺 Ứng dụng mới
+        </div>
+
+        <div class="apps">
+
+            <div class="app">
+
+                <div style="font-size:70px;">
+                    📺
+                </div>
+
+                <div class="app-name">
+                    Ứng dụng mẫu
+                </div>
+
+                <a class="download" href="#">
+                    TẢI VỀ
+                </a>
+
+            </div>
+
+            <div class="app">
+
+                <div style="font-size:70px;">
+                    📱
+                </div>
+
+                <div class="app-name">
+                    Ứng dụng mẫu 2
+                </div>
+
+                <a class="download" href="#">
+                    TẢI VỀ
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
