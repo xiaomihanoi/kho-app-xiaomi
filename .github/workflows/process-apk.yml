@@ -1,0 +1,50 @@
+name: Process APK
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  process-apk:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download release APKs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p apk-files
+          gh release download "${{ github.event.release.tag_name }}" \
+            --dir apk-files \
+            --repo "${{ github.repository }}" \
+            --pattern "*.apk"
+
+      - name: Show APK files
+        run: |
+          echo "APK files:"
+          ls -lh apk-files || true
+
+      - name: Prepare icons folder
+        run: |
+          mkdir -p icons
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add icons
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Prepare APK icons"
+            git push
+          fi
