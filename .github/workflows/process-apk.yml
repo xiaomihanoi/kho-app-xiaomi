@@ -12,30 +12,82 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download release APKs
+      - name: Download APK files
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p apk-files
+
           gh release download "${{ github.event.release.tag_name }}" \
             --dir apk-files \
             --repo "${{ github.repository }}" \
-            --pattern "*.apk"
+            --pattern "*.apk" \
+            --clobber
 
-      - name: Show APK files
-        run: |
-          echo "APK files:"
+          echo "Danh sách APK:"
           ls -lh apk-files || true
 
-      - name: Prepare icons folder
+      - name: Find Android build tools
+        run: |
+          AAPT=$(find "$ANDROID_HOME/build-tools" -type f -name aapt | sort -V | tail -1)
+
+          if [ -z "$AAPT" ]; then
+            echo "Không tìm thấy aapt"
+            exit 1
+          fi
+
+          echo "AAPT=$AAPT" >> "$GITHUB_ENV"
+          echo "Đã tìm thấy: $AAPT"
+
+      - name: Extract application icons
         run: |
           mkdir -p icons
 
-      - name: Commit changes
+          for APK in apk-files/*.apk; do
+
+            if [ ! -f "$APK" ]; then
+              continue
+            fi
+
+            NAME=$(basename "$APK" .apk)
+
+            echo "===================================="
+            echo "Đang xử lý: $NAME"
+            echo "===================================="
+
+            ICON_PATH=$("$AAPT" dump badging "$APK" 2>/dev/null \
+              | grep "application-icon-" \
+              | head -1 \
+              | sed -E "s/.*:'([^']+)'.*/\1/")
+
+            echo "Icon tìm được: $ICON_PATH"
+
+            if [ -n "$ICON_PATH" ]; then
+
+              unzip -p "$APK" "$ICON_PATH" > "icons/${NAME}.png" 2>/dev/null || true
+
+              if [ -s "icons/${NAME}.png" ]; then
+                echo "Đã lấy icon cho $NAME"
+              else
+                echo "Không thể lấy icon trực tiếp cho $NAME"
+                rm -f "icons/${NAME}.png"
+              fi
+
+            else
+              echo "Không tìm thấy icon bằng AAPT"
+            fi
+
+          done
+
+      - name: Show extracted icons
+        run: |
+          echo "Danh sách icon:"
+          ls -lh icons || true
+
+      - name: Save icons to repository
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -43,8 +95,8 @@ jobs:
           git add icons
 
           if git diff --cached --quiet; then
-            echo "No changes to commit"
+            echo "Không có icon mới"
           else
-            git commit -m "Prepare APK icons"
+            git commit -m "Tự động lấy icon từ APK"
             git push
           fi
