@@ -260,7 +260,17 @@ body{
 
 </header>
 
+<div class="search-box">
 
+    <input
+        type="text"
+        id="search"
+        placeholder="🔎 Tìm kiếm ứng dụng..."
+        oninput="searchApps()"
+    >
+
+</div>
+    
 <nav class="menu">
 
     <button class="active" onclick="showCategory('all',this)">
@@ -291,17 +301,6 @@ body{
 
 
 <main class="container">
-
-    <div class="search-box">
-
-        <input
-            type="text"
-            id="search"
-            placeholder="🔎 Tìm kiếm ứng dụng..."
-            oninput="searchApps()"
-        >
-
-    </div>
 
 
     <div class="section-title">
